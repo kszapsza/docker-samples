@@ -3,7 +3,6 @@ ARG NODE_VERSION=19.9.0
 FROM node:${NODE_VERSION}-alpine
 
 ENV NODE_ENV production
-ENV MONGODB_HOST mongo
 
 WORKDIR /usr/src/mern/backend
 

@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 
-const user = process.env.MONGODB_USER || 'root';
-const password = process.env.MONGODB_PASSWORD || 'example';
-const host = process.env.MONGODB_HOST || 'mongo';
+const user = process.env.MONGODB_USER;
+const password = process.env.MONGODB_PASSWORD;
+const host = process.env.MONGODB_HOST || 'localhost';
 const port = Number(process.env.MONGODB_PORT) || 27017;
 const db = process.env.MONGODB_DATABASE || 'mern-app';
 
