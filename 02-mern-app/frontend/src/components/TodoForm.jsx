@@ -14,6 +14,7 @@ export function TodoForm({ reload }) {
       title: newTodoTitle.trim(),
     }).then(() => {
       reload();
+      setNewTodoTitle('');
     }).catch(() => {
       setError(true);
     });

@@ -5,17 +5,17 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   Todo.find().then((todos) => {
-      res.send(
-        todos.map((todo) => ({
-          id: todo._id,
-          title: todo.title,
-          completed: todo.completed
-        }))
-      );
-    },
-    () => {
-      res.send([]);
-    });
+    res.send(
+      todos.map((todo) => ({
+        id: todo._id,
+        title: todo.title,
+        completed: todo.completed
+      }))
+    );
+  },
+  () => {
+    res.send([]);
+  });
 });
 
 router.get('/:id', (req, res) => {
@@ -34,7 +34,7 @@ router.get('/:id', (req, res) => {
         res.status(404);
         res.send('Not Found');
       }
-    })
+    });
   }
 });
 
@@ -43,22 +43,20 @@ router.post('/', (req, res) => {
     res.status(400);
     res.send('Bad Request');
   }
-  try {
-    Todo.create({
-      title: req.body.title,
-      completed: false
-    }).then((todo) => {
-      res.status(201);
-      res.send(todo);
-    });
-  } catch (e) {
+  Todo.create({
+    title: req.body.title,
+    completed: false
+  }).then((todo) => {
+    res.status(201);
+    res.send(todo);
+  }).catch((e) => {
     if (e.name === 'CastError') {
       res.status(400);
     } else {
       res.status(500);
     }
     res.send();
-  }
+  });
 });
 
 router.patch('/:id', (req, res) => {
@@ -72,8 +70,8 @@ router.patch('/:id', (req, res) => {
           { _id: todo._id },
           {
             title: req.body?.title ?? todo.title,
-            completed: req.body?.completed ?? todo.completed,
-          },
+            completed: req.body?.completed ?? todo.completed
+          }
         ).then(() => {
           res.status(200);
           res.send();
@@ -85,12 +83,11 @@ router.patch('/:id', (req, res) => {
           }
           res.send();
         });
-
       } else {
         res.status(404);
         res.send('Not Found');
       }
-    })
+    });
   }
 });
 
@@ -109,7 +106,7 @@ router.delete('/:id', (req, res) => {
         res.status(404);
         res.send('Not Found');
       }
-    })
+    });
   }
 });
 
