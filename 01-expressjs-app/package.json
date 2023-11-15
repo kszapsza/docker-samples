@@ -1,0 +1,14 @@
+{
+  "name": "docker-nodejs-app-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "author": "Karol Szapsza",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.18.2"
+  }
+}

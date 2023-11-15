@@ -1,0 +1,27 @@
+{
+  "name": "docker-mern-app-sample-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "lint": "eslint --ext .js,.jsx .",
+    "lint:fix": "eslint --fix --ext .js,.jsx ."
+  },
+  "author": "Karol Szapsza",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "4.18.2",
+    "mongoose": "^8.0.0"
+  },
+  "devDependencies": {
+    "eslint": "8.53.0",
+    "eslint-config-semistandard": "17.0.0",
+    "eslint-config-standard": "17.1.0",
+    "eslint-plugin-import": "2.29.0",
+    "eslint-plugin-n": "15.7.0",
+    "eslint-plugin-promise": "6.1.1"
+  }
+}
